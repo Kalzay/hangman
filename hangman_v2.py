@@ -18,7 +18,7 @@ def header():
 
 
 def display_bar(display, lives, current_body, guessed):
-    # Displays lives remaining, letters guessed, hanging man and word progress.
+    # Displays lives remaining, letters guessed, hanging man and word progress
     print('\t\t Lives remaining: %s' % lives)
     print('\t\t Guessed:', ', '.join(str(x).upper() for x in guessed))
     man(lives, current_body)
@@ -51,10 +51,11 @@ def get_new_word():
     header()
     new_word = input("\nPlease tell me a new word: ")
     if new_word in words:
-        print("\nI already know the word %s." % new_word.upper())
+        print("\nI already know the word %s" % new_word.upper())
     else:
         words.append(new_word)
-        print("\nThank you for this new word: %s\n" % new_word.upper())
+        print("\nThank you for this new word: %s" % new_word.upper())
+        save()
     sleep(3)
 
 
@@ -64,15 +65,15 @@ def show_words():
     print(', '.join(str(x).upper() for x in words))
 
 
-def quit():
-    # This function dumps the words into a file, and prints a quit message.
+def save():
+    # This function dumps the words into a file, and prints a save message.
     try:
         file_object = open('words.pydata', 'wb')
         pickle.dump(words, file_object)
         file_object.close()
-        print("\nI will remember any new words.")
+        print("\nI will remember this new word.")
     except Exception as e:
-        print("\nI won't be able to remember any new words.")
+        print("\nI won't be able this new word. Please try again.")
         print(e)
 
 
@@ -197,7 +198,6 @@ while choice != 'q':
     elif choice == 'q':
         header()
         print('Goodbye!')
-        quit()
     else:
         header()
         print("I don't understand that choice.")

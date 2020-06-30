@@ -49,8 +49,10 @@ def load_words():
 def get_new_word():
     # Asks the user for a new word, and stores the word if we don't already know it.
     header()
-    new_word = input("\nPlease tell me a new word: ")
-    if new_word in words:
+    new_word = input("\nPlease tell me a new word (or type q to quit): ")
+    if new_word == 'q':
+        return
+    elif new_word in words:
         print("\nI already know the word %s" % new_word.upper())
     else:
         words.append(new_word)
@@ -194,7 +196,7 @@ while choice != 'q':
         get_new_word()
     elif choice == '4':
         show_words()
-        sleep(3)
+        input("Press Enter to continue...")
     elif choice == 'q':
         header()
         print('Goodbye!')

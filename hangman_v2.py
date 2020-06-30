@@ -18,7 +18,7 @@ def header():
 
 
 def display_bar(display, lives, current_body, guessed):
-    # Displays lives remaining, letters guessed, hanging man and word progress
+    # Displays lives remaining, letters guessed, hanging man and word progress.
     print('\t\t Lives remaining: %s' % lives)
     print('\t\t Guessed:', ', '.join(str(x).upper() for x in guessed))
     man(lives, current_body)
@@ -54,7 +54,7 @@ def get_new_word():
         print("\nI already know the word %s." % new_word.upper())
     else:
         words.append(new_word)
-        print("\nThank you for this new word: %s!\n" % new_word.upper())
+        print("\nThank you for this new word: %s\n" % new_word.upper())
     sleep(3)
 
 
@@ -200,4 +200,4 @@ while choice != 'q':
         quit()
     else:
         header()
-        print("I don't understand that choice")
+        print("I don't understand that choice.")
